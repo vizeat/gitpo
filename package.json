@@ -2,11 +2,15 @@
   "name": "gitpo",
   "version": "1.0.1",
   "description": "Small utility to manage translations for POEditor projects linked to GitHub repositories",
-  "main": "gitpo.js",
   "author": "Jérémie Parker <github@jeremie-parker.com>",
   "license": "MIT",
+  "main": "gitpo.js",
   "bin": {
     "gitpo": "./cli.js"
+  },
+  "repository": {
+    "url": "git@github.com:vizeat/gitpo.git",
+    "type": "git"
   },
   "dependencies": {
     "inquirer": "^4.0.0",

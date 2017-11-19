@@ -170,6 +170,7 @@ Run the `sync_terms_and_translations` webhook on the given project (see: [POEdto
 | *Array* | `languages` | List of language code |
 
 Run the `export_terms_and_translations` webhook on the given project and languages (see: [POEdtor Webhook Documentation](https://poeditor.com/help/how_to_use_the_github_webhook))
+
 :warning: To complete this action, one call per language will be made.
 
 
