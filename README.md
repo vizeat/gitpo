@@ -1,5 +1,7 @@
 # GITPO
 
+[![Greenkeeper badge](https://badges.greenkeeper.io/vizeat/gitpo.svg)](https://greenkeeper.io/)
+
 Small utility to manage translations for POEditor projects linked to GitHub repositories: trigger [import/export/sync...](https://poeditor.com/help/how_to_use_the_github_webhook) webhooks manually or programatically.
 
 This is not a full API client and does not intend to be.
