@@ -12,6 +12,18 @@
     "url": "git@github.com:vizeat/gitpo.git",
     "type": "git"
   },
+  "bugs": {
+    "url": "https://github.com/vizeat/gitpo/issues"
+  },
+  "homepage": "https://github.com/vizeat/gitpo",
+  "keywords": [
+    "POEditor",
+    "i18n",
+    "translations",
+    "webhooks",
+    "api",
+    "cli"
+  ],
   "dependencies": {
     "inquirer": "^4.0.0",
     "lodash": "^4.17.4",
