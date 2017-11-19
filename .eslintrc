@@ -1,0 +1,11 @@
+{
+  "root": true,
+  "extends": [
+    "vizeat"
+  ],
+  "rules": {
+    "no-console": "off"
+  },
+  "globals": {
+  }
+}

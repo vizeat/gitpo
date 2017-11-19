@@ -1,0 +1,30 @@
+{
+  "name": "gitpo",
+  "version": "1.0.0",
+  "description": "Small utility to manage translations for POEditor projects linked to GitHub repositories",
+  "main": "gitpo.js",
+  "author": "Jérémie Parker <github@jeremie-parker.com>",
+  "license": "MIT",
+  "bin": { "gitpo": "./cli.js" },
+  "dependencies": {
+    "inquirer": "^4.0.0",
+    "lodash": "^4.17.4",
+    "prettyjson": "^1.2.1",
+    "rc": "^1.2.2",
+    "request": "^2.83.0",
+    "request-promise": "^4.2.2"
+  },
+  "devDependencies": {
+    "eslint": "^4.11.0",
+    "eslint-config-standard": "^10.2.1",
+    "eslint-config-vizeat": "^2.0.0",
+    "eslint-plugin-import": "^2.8.0",
+    "eslint-plugin-node": "^5.2.1",
+    "eslint-plugin-promise": "^3.6.0",
+    "eslint-plugin-standard": "^3.0.1",
+    "prettier-eslint": "^8.2.2"
+  },
+  "scripts": {
+    "fmt": "prettier-eslint \"./**/*.js\" --write"
+  }
+}
