@@ -8,14 +8,11 @@
   "bin": {
     "gitpo": "./cli.js"
   },
-  "repository": {
-    "url": "git@github.com:vizeat/gitpo.git",
-    "type": "git"
-  },
+  "repository": "https://github.com/vizeat/gitpo",
+  "homepage": "https://github.com/vizeat/gitpo",
   "bugs": {
     "url": "https://github.com/vizeat/gitpo/issues"
   },
-  "homepage": "https://github.com/vizeat/gitpo",
   "keywords": [
     "POEditor",
     "i18n",
