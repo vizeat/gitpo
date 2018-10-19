@@ -15,8 +15,6 @@ const {
   addContributor,
 } = require('./gitpo')
 
-let languages = []
-
 const {
   PROJECT_VIEW,
   PROJECT_UPDATE,
@@ -26,16 +24,9 @@ const {
   CONTRIBUTORS_LIST,
   CONTRIBUTORS_ADD,
   CONTRIBUTORS_DELETE,
-} = {
-  PROJECT_VIEW: 'PROJECT_VIEW',
-  PROJECT_UPDATE: 'PROJECT_UPDATE',
-  PROJECT_TERMS: 'PROJECT_TERMS',
-  PROJECT_CLEAN: 'PROJECT_CLEAN',
-  CONTRIBUTORS: 'CONTRIBUTORS',
-  CONTRIBUTORS_LIST: 'CONTRIBUTORS_LIST',
-  CONTRIBUTORS_ADD: 'CONTRIBUTORS_ADD',
-  CONTRIBUTORS_DELETE: 'CONTRIBUTORS_DELETE',
-}
+} = require('./utils/konstants')
+
+let languages = []
 
 inquirer
   .prompt([
