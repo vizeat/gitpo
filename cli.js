@@ -12,6 +12,7 @@ const {
   updateTranslations,
   viewProject,
   listContributors,
+  addContributor,
 } = require('./gitpo')
 
 let languages = []
@@ -156,6 +157,9 @@ inquirer
         break
       case CONTRIBUTORS_LIST:
         listContributors().then((res) => console.log(pj.render(res)))
+        break
+      case CONTRIBUTORS_ADD:
+        addContributor(email, fullname, projects, languages).then(() => console.log('Contributor added'))
         break
       default:
         console.log('Sorry, I did not get what it is that you want...')

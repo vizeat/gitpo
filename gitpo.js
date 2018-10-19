@@ -7,6 +7,7 @@ const synchronizeTerms = require('./lib/synchronizeTerms')(conf)
 const updateTranslations = require('./lib/updateTranslations')(conf)
 const viewProject = require('./lib/viewProject')(conf)
 const listContributors = require('./lib/listContributors')(conf)
+const addContributor = require('./lib/addContributor')(conf)
 
 module.exports = {
   cleanTranslationJSON,
@@ -17,4 +18,5 @@ module.exports = {
   updateTranslations,
   viewProject,
   listContributors,
+  addContributor,
 }
