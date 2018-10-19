@@ -111,7 +111,7 @@ inquirer
       when: async ({ action, project, projects }) => {
         if ([PROJECT_UPDATE, CONTRIBUTORS_ADD].includes(action)) {
           if (projects && !project) {
-            project = projects[0]
+            project = projects[0] // NOTE: assuming all projects have the same language set here
           }
           languages = await listProjectLanguages(project)
           return true
