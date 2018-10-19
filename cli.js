@@ -13,6 +13,7 @@ const {
   viewProject,
   listContributors,
   addContributor,
+  removeContributor,
 } = require('./gitpo')
 
 const {
@@ -23,7 +24,7 @@ const {
   CONTRIBUTORS,
   CONTRIBUTORS_LIST,
   CONTRIBUTORS_ADD,
-  CONTRIBUTORS_DELETE,
+  CONTRIBUTORS_REMOVE,
 } = require('./utils/konstants')
 
 let languages = []
@@ -33,7 +34,7 @@ inquirer
     {
       type: 'list',
       name: 'action',
-      message: 'What would you like to do',
+      message: 'What would you like to do:',
       choices: [
         { name: 'View Project Details', value: PROJECT_VIEW },
         { name: 'Update Code (POEditor → GitHub)', value: PROJECT_UPDATE },
@@ -46,18 +47,12 @@ inquirer
       when: ({ action }) => action === CONTRIBUTORS,
       type: 'list',
       name: 'action',
-      message: 'What would you like to do',
+      message: 'What would you like to do:',
       choices: [
         { name: 'List collaborators', value: CONTRIBUTORS_LIST },
         { name: 'Add collaborator', value: CONTRIBUTORS_ADD },
-        { name: 'Delete collaborator', value: CONTRIBUTORS_DELETE },
+        { name: 'Remove collaborator', value: CONTRIBUTORS_REMOVE },
       ],
-    },
-    {
-      when: ({ action }) => action === CONTRIBUTORS_ADD,
-      type: 'input',
-      name: 'email',
-      message: 'Email:',
     },
     {
       when: ({ action }) => action === CONTRIBUTORS_ADD,
@@ -66,33 +61,39 @@ inquirer
       message: 'Full Name:',
     },
     {
-      when: ({ action }) => action === PROJECT_CLEAN,
+      when: ({ action }) => [CONTRIBUTORS_ADD, CONTRIBUTORS_REMOVE].includes(action),
       type: 'input',
-      name: 'file',
-      message: 'Where is the file to work on ?',
+      name: 'email',
+      message: 'Email:',
     },
     {
-      when: ({ action }) => action === PROJECT_CLEAN,
-      type: 'confirm',
-      name: 'override',
-      message: 'Override existing file ? (if not, a file will be created next to the existing one)',
-      default: false,
-    },
-    {
-      when: ({ action }) => action !== PROJECT_CLEAN && action !== CONTRIBUTORS_LIST && action !== CONTRIBUTORS_ADD,
-      type: 'list',
-      name: 'project',
-      message: 'Select a project',
+      when: ({ action }) => [CONTRIBUTORS_ADD, CONTRIBUTORS_REMOVE].includes(action),
+      type: 'checkbox',
+      name: 'projects',
+      message: 'Select project(s):',
       choices: async () => {
         const projects = await listProjects()
         return projects.map(({ name, id: value }) => ({ name, value }))
       },
     },
     {
-      when: ({ action }) => action === CONTRIBUTORS_ADD,
-      type: 'checkbox',
-      name: 'projects',
-      message: 'Select project(s)',
+      when: ({ action }) => action === PROJECT_CLEAN,
+      type: 'input',
+      name: 'file',
+      message: 'Where is the file to work on?',
+    },
+    {
+      when: ({ action }) => action === PROJECT_CLEAN,
+      type: 'confirm',
+      name: 'override',
+      message: 'Override existing file? (if not, a file will be created next to the existing one)',
+      default: false,
+    },
+    {
+      when: ({ action }) => [PROJECT_VIEW, PROJECT_UPDATE, PROJECT_TERMS].includes(action),
+      type: 'list',
+      name: 'project',
+      message: 'Select a project:',
       choices: async () => {
         const projects = await listProjects()
         return projects.map(({ name, id: value }) => ({ name, value }))
@@ -100,7 +101,7 @@ inquirer
     },
     {
       when: async ({ action, project, projects }) => {
-        if ([PROJECT_UPDATE, CONTRIBUTORS_ADD].includes(action)) {
+        if ([PROJECT_UPDATE, CONTRIBUTORS_ADD, CONTRIBUTORS_REMOVE].includes(action)) {
           if (projects && !project) {
             project = projects[0] // NOTE: assuming all projects have the same language set here
           }
@@ -111,7 +112,7 @@ inquirer
       },
       type: 'checkbox',
       name: 'languages',
-      message: 'Select Language(s)',
+      message: 'Select Language(s):',
       choices: async () => languages.map(({ name, code }) => ({ name, value: code })),
     },
     {
@@ -151,6 +152,9 @@ inquirer
         break
       case CONTRIBUTORS_ADD:
         addContributor(email, fullname, projects, languages).then(() => console.log('Contributor added'))
+        break
+      case CONTRIBUTORS_REMOVE:
+        removeContributor(email, projects, languages).then(() => console.log('Contributor removed'))
         break
       default:
         console.log('Sorry, I did not get what it is that you want...')
