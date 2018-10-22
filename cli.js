@@ -148,7 +148,20 @@ inquirer
           .catch(() => console.log('Something went wrong'))
         break
       case CONTRIBUTORS_LIST:
-        listContributors().then((res) => console.log(pj.render(res)))
+        listContributors().then((res) =>
+          console.log(
+            pj.render(
+              res.contributors.map(({ name, email, permissions }) => ({
+                name,
+                email,
+                projects: permissions.map(
+                  ({ project: { name }, type, languages = ['all'] }) =>
+                    `${type} | (${languages.sort().join(', ')}) > ${name}`
+                ),
+              }))
+            )
+          )
+        )
         break
       case CONTRIBUTORS_ADD:
         addContributor(email, fullname, projects, languages).then(() => console.log('Contributor added'))
