@@ -1,14 +1,14 @@
 const conf = require('./config')
-const addContributor = require('./lib/addContributor')(conf)
+const addContributor = require('./lib/api/addContributor')(conf)
 const cleanTranslationJSON = require('./lib/cleanTranslationJSON')
-const importNewTerms = require('./lib/importNewTerms')(conf)
-const listContributors = require('./lib/listContributors')(conf)
-const listProjectLanguages = require('./lib/listProjectLanguages')(conf)
-const listProjects = require('./lib/listProjects')(conf)
-const removeContributor = require('./lib/removeContributor')(conf)
-const synchronizeTerms = require('./lib/synchronizeTerms')(conf)
-const updateTranslations = require('./lib/updateTranslations')(conf)
-const viewProject = require('./lib/viewProject')(conf)
+const importNewTerms = require('./lib/webhooks/importNewTerms')(conf)
+const listContributors = require('./lib/api/listContributors')(conf)
+const listProjectLanguages = require('./lib/api/listProjectLanguages')(conf)
+const listProjects = require('./lib/api/listProjects')(conf)
+const removeContributor = require('./lib/api/removeContributor')(conf)
+const synchronizeTerms = require('./lib/webhooks/synchronizeTerms')(conf)
+const updateTranslations = require('./lib/webhooks/updateTranslations')(conf)
+const viewProject = require('./lib/api/viewProject')(conf)
 
 module.exports = {
   addContributor,
