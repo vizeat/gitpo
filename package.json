@@ -22,6 +22,7 @@
     "cli"
   ],
   "dependencies": {
+    "bluebird": "^3.5.3",
     "inquirer": "^6.2.0",
     "lodash": "^4.17.4",
     "prettyjson": "^1.2.1",
