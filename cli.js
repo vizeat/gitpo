@@ -132,20 +132,32 @@ inquirer
         destructiveUpdate
           ? synchronizeTerms(project)
             .then(() => console.log('Syncing done'))
-            .catch(() => console.log('Something went wrong'))
+            .catch((err) => {
+              console.log('Something went wrong')
+              console.error(err)
+            })
           : importNewTerms(project)
             .then(() => console.log('Import done'))
-            .catch(() => console.log('Something went wrong'))
+            .catch((err) => {
+              console.log('Something went wrong')
+              console.error(err)
+            })
         break
       case PROJECT_UPDATE:
         updateTranslations(project, languages)
           .then(() => console.log('Languages updated'))
-          .catch(() => console.log('Something went wrong'))
+          .catch((err) => {
+            console.log('Something went wrong')
+            console.error(err)
+          })
         break
       case PROJECT_CLEAN:
         cleanTranslationJSON(file, override)
           .then(() => console.log('File ready'))
-          .catch(() => console.log('Something went wrong'))
+          .catch((err) => {
+            console.log('Something went wrong')
+            console.error(err)
+          })
         break
       case CONTRIBUTORS_LIST:
         listContributors().then((res) =>
