@@ -15,7 +15,19 @@ Add a `.gitporc` with the followings:
 
 ```json
 {
-  "API_TOKEN": "<your POEditor API key>"
+  "API_TOKEN": "<your POEditor API key>",
+  "HOOKS": {
+    "<projectId>": {
+      "IMPORT": "<webhook_url>",
+      "EXPORT": {
+        "fr": "<webhook_url>",
+        "en": "<webhook_url>"
+      },
+      "SYNC": {
+        // Not impleted currently
+      }
+    }
+  }
 }
 ```
 
@@ -72,11 +84,11 @@ const {
   removeContributor,
   synchronizeTerms,
   updateTranslations,
-  viewProject,
-} = require('gitpo')
+  viewProject
+} = require("gitpo");
 
-const languages = await listProjectLanguages(projectId)
-console.log(languages)
+const languages = await listProjectLanguages(projectId);
+console.log(languages);
 
 // [
 //   { name: 'English',
