@@ -27,6 +27,11 @@ const {
   CONTRIBUTORS_REMOVE,
 } = require('./utils/konstants')
 
+const handleError = (error) => {
+  console.log('Something went wrong')
+  console.error(error)
+}
+
 let languages = []
 
 inquirer
@@ -132,32 +137,20 @@ inquirer
         destructiveUpdate
           ? synchronizeTerms(project)
             .then(() => console.log('Syncing done'))
-            .catch((err) => {
-              console.log('Something went wrong')
-              console.error(err)
-            })
+            .catch(handleError)
           : importNewTerms(project)
             .then(() => console.log('Import done'))
-            .catch((err) => {
-              console.log('Something went wrong')
-              console.error(err)
-            })
+            .catch(handleError)
         break
       case PROJECT_UPDATE:
         updateTranslations(project, languages)
           .then(() => console.log('Languages updated'))
-          .catch((err) => {
-            console.log('Something went wrong')
-            console.error(err)
-          })
+          .catch(handleError)
         break
       case PROJECT_CLEAN:
         cleanTranslationJSON(file, override)
           .then(() => console.log('File ready'))
-          .catch((err) => {
-            console.log('Something went wrong')
-            console.error(err)
-          })
+          .catch(handleError)
         break
       case CONTRIBUTORS_LIST:
         listContributors().then((res) =>
