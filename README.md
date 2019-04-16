@@ -19,17 +19,18 @@ Add a `.gitporc` with the followings:
   "HOOKS": {
     "<projectId>": {
       "IMPORT": "<webhook_url>",
+      "SYNC": "<webhook_url>",
       "EXPORT": {
         "fr": "<webhook_url>",
         "en": "<webhook_url>"
-      },
-      "SYNC": {
-        // Not impleted currently
       }
     }
   }
 }
 ```
+
+The `HOOKS` need to be defined on POEditor, this is due to a change on POEditor's side which prevent us from building the hooks url or creating them automatically through API calls.
+Check [POEditor WebHooks guide](https://poeditor.com/help/how_to_use_the_github_webhook) for more information.
 
 ## Usage
 
