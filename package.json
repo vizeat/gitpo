@@ -43,6 +43,6 @@
     "prettier-eslint-cli": "^5.0.0"
   },
   "scripts": {
-    "fmt": "prettier-eslint \"./**/*.js\" --write"
+    "fmt": "prettier-eslint \"$(pwd)/**/*.js\" --write"
   }
 }
