@@ -136,11 +136,11 @@ inquirer
       case PROJECT_TERMS:
         destructiveUpdate
           ? synchronizeTerms(project)
-            .then(() => console.log('Syncing done'))
-            .catch(handleError)
+              .then(() => console.log('Syncing done'))
+              .catch(handleError)
           : importNewTerms(project)
-            .then(() => console.log('Import done'))
-            .catch(handleError)
+              .then(() => console.log('Import done'))
+              .catch(handleError)
         break
       case PROJECT_UPDATE:
         updateTranslations(project, languages)
@@ -161,11 +161,11 @@ inquirer
                 email,
                 projects: permissions.map(
                   ({ project: { name }, type, languages = ['all'] }) =>
-                    `${type} | (${languages.sort().join(', ')}) > ${name}`
+                    `${type} | (${languages.sort().join(', ')}) > ${name}`,
                 ),
-              }))
-            )
-          )
+              })),
+            ),
+          ),
         )
         break
       case CONTRIBUTORS_ADD:

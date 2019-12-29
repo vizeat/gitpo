@@ -5,7 +5,7 @@ const _ = require('lodash')
  * @param  {Object} object input
  * @return {Object}        clean output
  */
-function emptyIdenticalKeyVal (object) {
+function emptyIdenticalKeyVal(object) {
   const result = JSON.parse(JSON.stringify(object)) // Deep Clone
   const _clean = (value, key, object) => {
     if (_.isString(value)) {

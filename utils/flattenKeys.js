@@ -11,13 +11,13 @@ const _ = require('lodash')
  *         flatten ({ x: { y: z }, a: { b: { c: d } } }, '.', (x) => `"${x}"`)
  *      => { '"x"': y , '"a"."b"': c }
  */
-function flattenKeys (object, separator = '.', keyProcessor = (x) => x) {
+function flattenKeys(object, separator = '.', keyProcessor = (x) => x) {
   const _flatten = (value, key, path = '') => {
     return _.isString(value)
       ? [{ [path]: key }]
       : _.map(value, (v, k) =>
-        [].concat(..._flatten(v, k, path ? `${path}${separator}${keyProcessor(key)}` : `${keyProcessor(key)}`))
-      )
+          [].concat(..._flatten(v, k, path ? `${path}${separator}${keyProcessor(key)}` : `${keyProcessor(key)}`)),
+        )
   }
   return [].concat(..._.map(object, (val, key) => [].concat(..._flatten(val, key))))
 }
