@@ -45,6 +45,6 @@
   },
   "scripts": {
     "lint": "eslint --cache -c .eslintrc . --ext js",
-    "fmt": "prettier-eslint \"$(pwd)/**/*.js\" --write"
+    "pub": "yarn publish --registry https://registry.npmjs.com && git push --follow-tags"
   }
 }
