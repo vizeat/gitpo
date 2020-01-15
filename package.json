@@ -1,6 +1,6 @@
 {
   "name": "gitpo",
-  "version": "2.0.4",
+  "version": "2.0.5",
   "description": "Small utility to manage translations for POEditor projects linked to GitHub repositories",
   "author": "Jérémie Parker <github@jeremie-parker.com>",
   "license": "MIT",
