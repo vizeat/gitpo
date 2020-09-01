@@ -582,9 +582,9 @@ eslint-config-standard@^14.1.0:
   integrity sha512-Z9B+VR+JIXRxz21udPTL9HpFMyoMUEeX1G251EQ6e05WD9aPVtVBn09XUmZ259wCMlCDmYDSZG62Hhm+ZTJcUg==
 
 eslint-config-vizeat@^10.1.0:
-  version "10.1.0"
-  resolved "https://registry.npmjs.org/eslint-config-vizeat/-/eslint-config-vizeat-10.1.0.tgz#93dfc84ab19776da5d4fb64b0c6bd040410e649f"
-  integrity sha512-KfyL3kMDyW6MMtC6acyZh2taGCAEXkoAPDuzKd7+7UR+nonMOlGGu3dNdJlYQozzjubPX7ksuvf1GvbNg0Qo6Q==
+  version "10.1.1"
+  resolved "https://registry.yarnpkg.com/eslint-config-vizeat/-/eslint-config-vizeat-10.1.1.tgz#aea3ff51bc0ca3edba46b96db4af9c553882908a"
+  integrity sha512-Z5DFbzwjZWyI9KSbHfX/U3IpYimHuNy/V1nQXSaTaVVEGi3/LYdo8bED3pR51cjTrR0lxdVDIk20LfvylMNb1w==
   dependencies:
     "@typescript-eslint/eslint-plugin" "^3.2.0"
     "@typescript-eslint/parser" "^3.2.0"
