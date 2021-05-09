@@ -22,7 +22,7 @@
     "cli"
   ],
   "dependencies": {
-    "inquirer": "^7.0.1",
+    "inquirer": "^8.0.0",
     "lodash": "^4.17.4",
     "prettyjson": "^1.2.1",
     "rc": "^1.2.2",
