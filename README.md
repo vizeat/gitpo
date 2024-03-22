@@ -17,14 +17,14 @@ Add a `.gitporc` with the followings:
 {
   "API_TOKEN": "<your POEditor API key>",
   "HOOKS": {
-    "<projectId>": {
+    "<projectId>": [{
       "IMPORT": "<webhook_url>",
       "SYNC": "<webhook_url>",
       "EXPORT": {
         "fr": "<webhook_url>",
         "en": "<webhook_url>"
       }
-    }
+    }]
   }
 }
 ```
